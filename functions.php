@@ -21,3 +21,14 @@ function avada_lang_setup() {
 	load_child_theme_textdomain( 'Avada', $lang );
 }
 add_action( 'after_setup_theme', 'avada_lang_setup' );
+
+/**
+ * Output the footer social icons.
+ *
+ * @return void
+ */
+function render_footer_social_icons() {
+	// Render the social icons.
+	get_template_part( 'templates/footer-social-icons' );
+}
+add_action( 'avada_footer_copyright_content', 'render_footer_social_icons', 9 );
