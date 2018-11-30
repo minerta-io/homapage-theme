@@ -32,3 +32,13 @@ function render_footer_social_icons() {
 	get_template_part( 'templates/footer-social-icons' );
 }
 add_action( 'avada_footer_copyright_content', 'render_footer_social_icons', 9 );
+
+/**
+ * Remove Admin bar
+ */
+function remove_admin_bar() {
+	if (!current_user_can('administrator') && !is_admin()) {
+  		show_admin_bar(false);
+	}
+}
+add_action('after_setup_theme', 'remove_admin_bar');
